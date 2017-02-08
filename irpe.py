@@ -14,7 +14,7 @@ import logging
 from time import sleep
 import RPi.GPIO as GPIO
 
-HOMEPATH = '/var/scripts/ir-photon-emitter'
+HOMEPATH = '/var/scripts/ir-photon-emitter/'
 
 sys.path.insert(0, HOMEPATH)
 import irpe_config
@@ -44,7 +44,8 @@ IRTIMER = None
 
 
 def start_timer():
-    """start timer thread to turn off ir light after MAXTIME
+    """
+    Start timer thread to turn off ir light after MAXTIME
     args: None
     returns : None
     """
@@ -58,7 +59,8 @@ def start_timer():
 
 def check_timer():
 
-    """Check if Timer thread is running
+    """
+    Check if Timer thread is running
     args: None
     returns: Boolean
     """
@@ -134,7 +136,7 @@ def turn_on_half_2():
 
 def turn_off():
 
-    """turn off IR light"""
+    """Turn off IR light"""
 
     global STATE, IRTIMER
 
@@ -150,7 +152,7 @@ def turn_off():
 
 def operate(cmd):
 
-    """parse operations received via JSON over UDP"""
+    """Parse operations received via JSON over UDP"""
 
     if cmd['Power'] == 'Off':
         turn_off()
