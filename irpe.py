@@ -30,6 +30,8 @@ PIN1 = 17
 PIN2 = 18
 
 GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
+GPIO.setwarnings(False)
+
 GPIO.setup(PIN1, GPIO.OUT)
 GPIO.setup(PIN2, GPIO.OUT)
 
@@ -160,7 +162,7 @@ def operate(cmd):
     elif cmd['Power'] == 'Low':
         turn_on_half_1()
 
-    elif cmd['Power'] == 'Off':
+    elif cmd['Power'] == 'High':
         turn_on()
 
 
@@ -232,7 +234,6 @@ if __name__ == "__main__":
                             if command['Operation'] == "SET":
 
                                 operate(command)
-
 
                         except:
                             logging.exception("Exception Occured:")
